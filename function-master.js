@@ -19,11 +19,15 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    //empty array
     let words = [];
+    //for in loop to push every key to array
     for (var key in object) {
         words.push(key);
     }
+    //joins array with spaces into a sentence
     let sentence = words.join(' ');
+    //returns joined sentence
     return sentence;
 }
 
@@ -32,6 +36,19 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //empty array to hold string values
+    let strings = [];
+    //for in loop to check if obj key value is === to string and pushes key value to array
+    for (var key in object) {
+        if (typeof object[key] === 'string'){
+            //pushes object key to array
+            strings.push(object[key]);
+        }
+    }
+    //joins array together with spaces
+    let stringSentence = strings.join(' ');
+    //return sentence
+    return stringSentence;
     
 }
 
@@ -40,6 +57,16 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    // checks if array is array
+    if(Array.isArray(collection)){
+        return 'array';
+        //checks if not instanceof date, not null, not undefined, and is typeof 'object'
+    } else if (!(collection instanceof Date) && collection !== null && collection !== undefined && typeof collection === 'object'){
+        //returns 'object'
+        return 'object';
+    }
+
+    
     
 }
 
@@ -48,7 +75,10 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    //splice first letter of string
+    //capitalize first letter
+    //join letter and string back together
+   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
