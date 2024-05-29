@@ -4,6 +4,14 @@
 
 function objectValues(object) {
     // code
+    //empty array to hold object values
+    let objValues = [];
+    //for in loop to push object's key values to empty array objValues
+    for (var key in object){
+        objValues.push(object[key]);
+    }
+        //return array of values
+        return objValues;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +19,12 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    let words = [];
+    for (var key in object) {
+        words.push(key);
+    }
+    let sentence = words.join(' ');
+    return sentence;
 }
 
 //////////////////////////////////////////////////////////////////////
