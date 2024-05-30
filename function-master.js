@@ -86,7 +86,17 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    //split string into array
+    let stringArray = string.split(' ');
+
+    //for loop to iterate over stringArray
+    for (let i = 0; i < stringArray.length; i++){
+        //capitalize word at every index calling function capitalizeWord
+        stringArray[i] = capitalizeWord(stringArray[i]);
+
+    }
+    //return stringArray joined
+    return stringArray.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -94,7 +104,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    //checks if object have name prop and returns Welcome <name>!
+    if (object && object.hasOwnProperty('name')){
+        return 'Welcome ' + capitalizeAllWords(object['name']) + '!';
+    } 
+    return 'Welcome!'
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -102,7 +116,11 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    //checks if obj has name and species property
+    if (object && object.hasOwnProperty('name') && object.hasOwnProperty('species')){
+        //returns Name + ' is a ' + Species
+        return capitalizeWord(object['name']) + ' is a ' + capitalizeWord(object['species']);
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
